@@ -1,0 +1,22 @@
+name: 'Experiment #1'
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run a multi-line script.
+        run: |
+          perl -E 'say "Is STDOUT a TTY?:", -t STDOUT ? "yes" : "no"'
+
+  build-2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run a multi-line script.
+        shell: 'script -q -e -c "bash {0}"'
+        run: |
+          perl -E 'say "Is STDOUT a TTY?:", -t STDOUT ? "yes" : "no"'
+
