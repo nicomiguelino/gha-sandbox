@@ -20,3 +20,10 @@ jobs:
         run: |
           perl -E 'say "Is STDOUT a TTY?:", -t STDOUT ? "yes" : "no"'
 
+  build-3:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Determine the number of processing units available.
+        run: |
+          echo "Processing Units Available: $(nproc)"
+
