@@ -1,0 +1,15 @@
+name: 'Experiment #2 - Artifacts'
+
+on: workflow_dispatch
+
+jobs:
+  build-1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create a plain text file.
+        run: |
+          echo 'Hello, world!' > hello.txt
+      - name: List contents of the current working directory.
+        run:
+          echo $PWD
+          echo ls -R
