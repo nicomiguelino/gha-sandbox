@@ -13,3 +13,8 @@ jobs:
         run: |
           echo $PWD
           ls -R
+      - name: Archive the artifact.
+        uses: actions/upload-artifact@v3
+        with:
+          name: hello-txt
+          path: ./hello.txt
