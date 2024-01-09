@@ -10,6 +10,6 @@ jobs:
         run: |
           echo 'Hello, world!' > hello.txt
       - name: List contents of the current working directory.
-        run:
+        run: |
           echo $PWD
           echo ls -R
