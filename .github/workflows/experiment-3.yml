@@ -18,7 +18,7 @@ jobs:
           git rev-parse --abbrev-ref HEAD
           echo "github.ref: ${{ github.ref }}"
   deploy:
-    if: ${{ github.ref == 'refs/heads/main' }}
+    if: ${{ github.ref == 'refs/heads/experimental' }}
     runs-on: ubuntu-latest
     steps:
       - name: Print something random.
