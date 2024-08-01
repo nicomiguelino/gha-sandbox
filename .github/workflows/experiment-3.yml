@@ -1,0 +1,17 @@
+name: 'Experiment #3 - Checkout, Branches, and Conditionals'
+
+on:
+  push:
+    branches:
+      - experimental
+
+jobs:
+  checkout-repo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the repository.
+        uses: actions/checkout@v3
+      - name: List the contents of the repository.
+        run: |
+          echo $PWD
+          ls -R
