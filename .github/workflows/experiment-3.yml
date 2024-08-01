@@ -16,6 +16,7 @@ jobs:
           echo $PWD
           ls -R
           git rev-parse --abbrev-ref HEAD
+          echo "github.ref: ${{ github.ref }}"
   deploy:
     if: ${{ github.ref == 'refs/heads/main' }}
     runs-on: ubuntu-latest
