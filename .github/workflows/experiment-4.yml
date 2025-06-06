@@ -27,6 +27,16 @@ jobs:
             echo "APP_PATH=${{ env.APP_PATH }}/dist" >> "$GITHUB_ENV"
           fi
 
+          mkdir -p "${{ env.APP_PATH }}"
+          touch "${{ env.APP_PATH }}/message.txt"
+          echo "message: ${{ env.APP_PATH }}" > "${{ env.APP_PATH }}/message.txt"
+
       - name: Debug the environment variable
         run: |
           echo "${{ env.APP_PATH }}"
+
+      - name: Debug working directory
+        working-directory: "${{ env.APP_PATH }}"
+        run: |
+          pwd
+          cat "${{ env.APP_PATH }}"/message.txt
