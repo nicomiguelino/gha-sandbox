@@ -1,0 +1,32 @@
+name: 'Experiment #4 - Dealing with Dynamic Environment Variables'
+
+on:
+  workflow_dispatch:
+    inputs:
+      edge_app_name:
+        description: 'Folder name of the edge app (under edge-apps/) to initialize'
+        required: true
+      app_type:
+        description: 'Type of the Edge App (html or react)'
+        required: true
+        default: 'html'
+        type: choice
+        options:
+          - html
+          - react
+
+jobs:
+  build-1:
+    runs-on: ubuntu-latest
+    env:
+      APP_PATH: edge-apps/${{ inputs.edge_app_name }}
+    steps:
+      - name: Modify APP_PATH based on app type
+        run: |
+          if [ "${{ inputs.app_type }}" = "react" ]; then
+            echo "APP_PATH=${{ env.APP_PATH }}/dist" >> "$GITHUB_ENV"
+          fi
+
+      - name: Debug the environment variable
+        run: |
+          echo "${{ env.APP_PATH }}"
