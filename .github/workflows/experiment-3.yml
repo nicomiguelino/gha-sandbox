@@ -1,10 +1,6 @@
 name: 'Experiment #3 - Checkout, Branches, and Conditionals'
 
-on:
-  push:
-    branches:
-      - main
-      - experimental
+on: workflow_dispatch
 
 jobs:
   checkout:
