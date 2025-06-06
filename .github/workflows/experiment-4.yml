@@ -39,4 +39,4 @@ jobs:
         working-directory: "${{ env.APP_PATH }}"
         run: |
           pwd
-          cat "${{ env.APP_PATH }}/message.txt"
+          cat message.txt
