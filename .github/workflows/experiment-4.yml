@@ -27,6 +27,9 @@ jobs:
             echo "APP_PATH=${{ env.APP_PATH }}/dist" >> "$GITHUB_ENV"
           fi
 
+
+      - name: Create a new directory
+        run: |
           mkdir -p "${{ env.APP_PATH }}"
           touch "${{ env.APP_PATH }}/message.txt"
           echo "message: ${{ env.APP_PATH }}" > "${{ env.APP_PATH }}/message.txt"
